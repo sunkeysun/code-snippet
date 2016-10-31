@@ -5,20 +5,31 @@ const data = {
     4: {id: 4, pid: 3, name: 'dd'},
     5: {id: 5, pid: 4, name: 'ee'},
     6: {id: 6, pid: 3, name: 'ff'},
-    7: {id: 7, pid: 4, name: 'gg'},
+    7: {id: 7, pid: 1, name: 'gg'},
     8: {id: 8, pid: 5, name: 'hh'},
     9: {id: 9, pid: 6, name: 'ii'},
     10: {id: 10, pid: 8, name: 'jj'},
     11: {id: 11, pid: 7, name: 'kk'},
 };
 
-function genTree(data) {
-    let tree = {
-        id: 0,
-        name: 'root',
-        child: {},
-    };
+function genTree(srcData) {
+    var data = JSON.parse(JSON.stringify(srcData));
+    let tree = [];
 
-    data.forEach((item) => {
-    });
+    for (var i in data) {
+        var item = data[i];
+        if (data[item.pid]) {
+            !!data[item.pid].child || (data[item.pid].child = []);
+            data[item.pid].child.push(item);
+        } else {
+            tree.push(data[item.id]);
+        }
+    }
+
+    return tree;
 }
+
+const tree = genTree(data);
+
+console.log(tree);
+console.log(data);
