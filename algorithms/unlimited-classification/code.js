@@ -13,6 +13,7 @@ const data = {
 };
 
 function genTree(srcData) {
+    // 简单的深复制
     var data = JSON.parse(JSON.stringify(srcData));
     let tree = [];
 
