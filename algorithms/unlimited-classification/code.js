@@ -31,6 +31,3 @@ function genTree(srcData) {
 }
 
 const tree = genTree(data);
-
-console.log(tree);
-console.log(data);
