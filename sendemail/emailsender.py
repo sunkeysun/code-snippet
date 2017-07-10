@@ -66,5 +66,5 @@ RECEIVERS = [
 ]
 
 sender = EmailSender(MAIL_SERVER, MAIL_PORT, MAIL_USER, MAIL_PASS, use_tls=True)
-sender.send_email(MAIL_USER, RECEIVERS, 'hello,world')
+sender.send_email(MAIL_USER, RECEIVERS, content='hello,world')
 
